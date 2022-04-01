@@ -3,11 +3,10 @@ import Text from '../../text';
 import Box from '../../box';
 
 interface DescriptionFieldProps {
-	id: string;
 	description: string;
 }
 
-export const DescriptionField = ({ id, description }: DescriptionFieldProps) => {
+export const DescriptionField = ({ description }: DescriptionFieldProps) => {
 	return (
 		<Box>
 			<Text>{description}</Text>

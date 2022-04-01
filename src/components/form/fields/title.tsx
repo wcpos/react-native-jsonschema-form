@@ -5,15 +5,14 @@ import Box from '../../box';
 const REQUIRED_FIELD_SYMBOL = '*';
 
 interface TitleFieldProps {
-	id: string;
 	title: string;
-	required: boolean;
+	required?: boolean;
 }
 
-export const TitleField = ({ id, title, required }: TitleFieldProps) => {
+export const TitleField = ({ title, required }: TitleFieldProps) => {
 	return (
 		<Box horizontal>
-			<Text>{title}</Text> {required && <Text>{REQUIRED_FIELD_SYMBOL}</Text>}
+			<Text size="large">{title}</Text> {required && <Text>{REQUIRED_FIELD_SYMBOL}</Text>}
 		</Box>
 	);
 };
