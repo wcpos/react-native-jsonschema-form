@@ -1,12 +1,12 @@
 import React from 'react';
 import * as ReactIs from 'react-is';
-import Checkbox from '../checkbox';
-import Radio from '../radio';
-import Select from '../select';
-import Slider from '../slider';
-import Switch from '../switch';
-import TextArea from '../textarea';
-import TextInput from '../textinput';
+import Checkbox from '@wcpos/components/src/checkbox';
+import Radio from '@wcpos/components/src/radio';
+import Select from '@wcpos/components/src/select';
+import Slider from '@wcpos/components/src/slider';
+import Switch from '@wcpos/components/src/switch';
+import TextArea from '@wcpos/components/src/textarea';
+import TextInput from '@wcpos/components/src/textinput';
 import { getSchemaType } from './form.helpers';
 
 export default {
@@ -92,7 +92,7 @@ function mergeOptions(Component: Widget) {
 /**
  *
  */
- export function getWidget(
+export function getWidget(
 	schema: Schema,
 	widget: Widget | string,
 	registeredWidgets?: { [name: string]: Widget } = {}

@@ -1,9 +1,9 @@
 import * as React from 'react';
 import get from 'lodash/get';
-import Button from '../../button';
-import Box from '../../box';
-import Icon from '../../icon';
-import Collapsible from '../../collapsible';
+import Button from '@wcpos/components/src/button';
+import Box from '@wcpos/components/src/box';
+import Icon from '@wcpos/components/src/icon';
+import Collapsible from '@wcpos/components/src/collapsible';
 import { ArrayItemTemplate } from './array-item';
 import { useFormContext } from '../context';
 

@@ -1,7 +1,7 @@
 import * as React from 'react';
-import Button from '../../button';
-import Box from '../../box';
-import Icon from '../../icon';
+import Button from '@wcpos/components/src/button';
+import Box from '@wcpos/components/src/box';
+import Icon from '@wcpos/components/src/icon';
 
 export const ArrayItemTemplate = ({
 	children,

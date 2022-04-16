@@ -1,6 +1,6 @@
 import * as React from 'react';
-import Text from '../../text';
-import Box from '../../box';
+import Text from '@wcpos/components/src/text';
+import Box from '@wcpos/components/src/box';
 
 interface DescriptionFieldProps {
 	description: string;

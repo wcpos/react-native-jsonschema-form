@@ -1,6 +1,6 @@
 import * as React from 'react';
 import get from 'lodash/get';
-import Box from '../../box';
+import Box from '@wcpos/components/src/box';
 import { useFormContext } from '../context';
 import { getSchemaType } from '../form.helpers';
 

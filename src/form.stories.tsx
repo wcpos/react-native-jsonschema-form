@@ -8,7 +8,7 @@ import delay from 'lodash/delay';
 import cloneDeep from 'lodash/cloneDeep';
 import find from 'lodash/find';
 import { StoryWrapper } from '@storybook/addons';
-import { AppProviderSizeProvider } from '@wcpos/common/src/hooks/use-position-in-app';
+import { AppProviderSizeProvider } from '@wcpos/hooks/src/use-position-in-app';
 import Portal from '../portal';
 import { Form } from './form';
 import { FormProps } from './types';

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import get from 'lodash/get';
-import Box from '../../box';
-import Collapsible from '../../collapsible';
+import Box from '@wcpos/components/src/box';
+import Collapsible from '@wcpos/components/src/collapsible';
 import { useFormContext } from '../context';
 
 interface ObjectTemplateProps {
