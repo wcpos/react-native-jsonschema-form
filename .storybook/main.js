@@ -12,7 +12,17 @@ module.exports = {
 		'@storybook/preset-create-react-app',
 		'@storybook/addon-essentials',
 		'@storybook/addon-actions',
-		'@storybook/addon-react-native-web'
+		{
+      name: '@storybook/addon-react-native-web',
+      options: {
+				modulesToTranspile: [
+					'@wcpos/components',
+					// 'react-native-reanimated',
+					// 'react-native-gesture-handler'
+				],
+        // babelPlugins: ['react-native-reanimated/plugin'],
+      },
+    },
 	],
 
 	framework: '@storybook/react',
@@ -25,13 +35,12 @@ module.exports = {
 	babel: async (options) => ({
     // Update your babel configuration here
     ...options,
+		presets: ['@wcpos/babel-preset-expo']
   }),
 
 	webpackFinal: async (config, { configType }) => {
     // Make whatever fine-grained changes you need
     // Return the altered config
-		console.log(config);
-		console.log(config.module.rules[2].oneOf[9].type);
     return config;
 	},
 };
