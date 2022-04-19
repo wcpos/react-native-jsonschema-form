@@ -6,7 +6,7 @@ module.exports = {
     builder: 'webpack5',
 	},
 	
-	stories: ['src/**/*.stories.tsx'],
+	stories: ['../src/*.stories.tsx'],
 
 	addons: [
 		'@storybook/preset-create-react-app',
@@ -17,10 +17,13 @@ module.exports = {
       options: {
 				modulesToTranspile: [
 					'@wcpos/components',
-					// 'react-native-reanimated',
-					// 'react-native-gesture-handler'
+					'@wcpos/themes',
+					'@wcpos/utils',
+					'@wcpos/hooks',
+					'react-native-reanimated',
+					'react-native-gesture-handler'
 				],
-        // babelPlugins: ['react-native-reanimated/plugin'],
+        babelPlugins: ['react-native-reanimated/plugin'],
       },
     },
 	],
@@ -39,8 +42,12 @@ module.exports = {
   }),
 
 	webpackFinal: async (config, { configType }) => {
-    // Make whatever fine-grained changes you need
-    // Return the altered config
+		config.resolve.alias = {
+			...(config.resolve.alias || {}),
+			// Mock expo-haptics
+			'expo-haptics$': path.resolve(__dirname, 'utils/expo-haptics'),
+		}
+
     return config;
 	},
 };
