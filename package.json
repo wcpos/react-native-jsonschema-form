@@ -48,7 +48,7 @@
 		"@testing-library/react-hooks": "8.0.1",
 		"@types/jest": "27.5.2",
 		"@types/lodash": "4.14.182",
-		"@types/react": "17.0.47",
+		"@types/react": "18.0.14",
 		"@types/react-native": "0.67.11",
 		"@wcpos/babel-preset-expo": "*",
 		"@wcpos/eslint-config": "*",
