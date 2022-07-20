@@ -42,21 +42,22 @@ export const ArrayItemTemplate = ({
 			<Box fill>{children}</Box>
 			{hasToolbar && (
 				<Box>
-					<Button.Group>
+					<Button.Group size="small">
 						{(canMoveUp || canMoveDown) && (
 							<Button disabled={disabled || readonly || !canMoveUp} onPress={handleMoveUpPress}>
-								<Icon size="small" name="arrowUp" />
+								<Icon size="xSmall" name="arrowUp" />
 							</Button>
 						)}
 
 						{(canMoveUp || canMoveDown) && (
 							<Button disabled={disabled || readonly || !canMoveDown} onPress={handleMoveDownPress}>
-								<Icon size="small" name="arrowDown" />
+								<Icon size="xSmall" name="arrowDown" />
 							</Button>
 						)}
+
 						{canRemove && (
-							<Button type="warning" disabled={disabled || readonly} onPress={handleRemovePress}>
-								<Icon size="small" name="xmark" />
+							<Button type="critical" disabled={disabled || readonly} onPress={handleRemovePress}>
+								<Icon size="xSmall" name="xmark" />
 							</Button>
 						)}
 					</Button.Group>

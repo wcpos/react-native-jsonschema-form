@@ -74,7 +74,7 @@ export const NodeTemplate = ({
 	);
 
 	return (
-		<Box>
+		<Box style={{ paddingLeft: 10 }}>
 			<FieldComponent
 				schema={schema}
 				formData={formData}
