@@ -1,6 +1,6 @@
 {
 	"name": "@wcpos/react-native-jsonschema-form",
-	"version": "0.0.11",
+	"version": "0.0.12",
 	"description": "A platform agnostic component (native/web) for building forms with JSON Schema",
 	"author": "kilbot <paul@kilbot.com>",
 	"homepage": "https://github.com/wcpos/react-native-jsonschema-form#readme",
@@ -26,16 +26,16 @@
 		"json-schema-merge-allof": "0.8.1",
 		"jsonpointer": "5.0.1",
 		"lodash": "4.17.21",
-		"react": "18.0.0",
-		"react-dom": "18.0.0",
+		"react": "18.2.0",
+		"react-dom": "18.2.0",
 		"react-is": "18.2.0",
-		"react-native": "0.69.5",
+		"react-native": "0.69.6",
 		"react-native-reanimated": "~2.9.1",
 		"react-native-web": "~0.18.9",
-		"styled-components": "5.3.5"
+		"styled-components": "5.3.6"
 	},
 	"devDependencies": {
-		"@babel/core": "^7.19.1",
+		"@babel/core": "^7.19.3",
 		"@storybook/addon-actions": "6.5.12",
 		"@storybook/addon-controls": "6.5.12",
 		"@storybook/addon-essentials": "6.5.12",
@@ -63,7 +63,7 @@
 		"react-scripts": "5.0.1",
 		"react-test-renderer": "18.2.0",
 		"ts-jest": "^29.0.2",
-		"typescript": "^4.8.3",
+		"typescript": "^4.8.4",
 		"webpack": "5.74.0"
 	},
 	"eslintConfig": {
