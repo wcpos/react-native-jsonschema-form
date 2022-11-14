@@ -1,6 +1,6 @@
 {
 	"name": "@wcpos/react-native-jsonschema-form",
-	"version": "0.0.20",
+	"version": "0.0.21",
 	"description": "A platform agnostic component (native/web) for building forms with JSON Schema",
 	"author": "kilbot <paul@kilbot.com>",
 	"homepage": "https://github.com/wcpos/react-native-jsonschema-form#readme",
@@ -16,7 +16,8 @@
 	"scripts": {
 		"test": "eslint --ext ts,tsx ./src",
 		"storybook": "start-storybook -p 9009",
-		"build-storybook": "build-storybook -o docs-build"
+		"build-storybook": "build-storybook -o docs-build",
+		"postinstall": "patch-package"
 	},
 	"dependencies": {
 		"@wcpos/components": "*",
@@ -58,6 +59,8 @@
 		"babel-loader": "9.1.0",
 		"babel-plugin-react-native-web": "0.18.10",
 		"jest": "^29.3.1",
+		"patch-package": "^6.5.0",
+		"postinstall-postinstall": "^2.1.0",
 		"react-native-storybook-loader": "2.0.5",
 		"react-scripts": "5.0.1",
 		"react-test-renderer": "18.2.0",
