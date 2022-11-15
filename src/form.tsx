@@ -7,9 +7,8 @@ import set from 'lodash/set';
 import { FormContextProvider } from './context';
 import { ErrorList } from './error-list';
 import fields from './fields';
-import { toIdSchema, getDefaultFormState, retrieveSchema } from './form.helpers';
+import { toIdSchema, getDefaultFormState, retrieveSchema, toErrorList } from './form.helpers';
 import { NodeTemplate } from './templates/node';
-import { toErrorList } from './validate';
 import widgets from './widgets';
 
 import type { Schema, UiSchema, ErrorSchema } from './types';

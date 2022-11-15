@@ -1,7 +1,8 @@
 import * as React from 'react';
+
 import cloneDeep from 'lodash/cloneDeep';
-import { ArrayTemplate } from '../templates/array';
-import { NodeTemplate } from '../templates/node';
+
+import { useFormContext } from '../context';
 import {
 	retrieveSchema,
 	allowAdditionalItems,
@@ -10,8 +11,9 @@ import {
 	getDefaultFormState,
 	getUiOptions,
 } from '../form.helpers';
+import { ArrayTemplate } from '../templates/array';
+import { NodeTemplate } from '../templates/node';
 import { generateKeyedFormData, generateRowId } from './array.helpers';
-import { useFormContext } from '../context';
 
 export const FixedArray = ({ schema, formData, uiSchema, idSchema, errorSchema, onChange }) => {
 	const { rootSchema } = useFormContext();
