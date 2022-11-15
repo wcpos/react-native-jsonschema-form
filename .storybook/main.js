@@ -23,22 +23,25 @@ module.exports = {
 					'react-native-reanimated',
 					'react-native-gesture-handler'
 				],
-        babelPlugins: ['react-native-reanimated/plugin'],
+        babelPlugins: ['react-native-reanimated/plugin',  '@babel/plugin-proposal-export-namespace-from'],
       },
     },
 	],
 
+	// features: {
+  //   babelModeV7: true,
+  // },
+
 	framework: '@storybook/react',
 
 	typescript: {
-		// @TODO remove this https://github.com/styleguidist/react-docgen-typescript/issues/356
-		// reactDocgen: 'none',
+		// check: false,
 	},
 
 	babel: async (options) => ({
     // Update your babel configuration here
     ...options,
-		presets: ['@wcpos/babel-preset-expo']
+		presets: [['babel-preset-expo', { jsxRuntime: 'automatic' }], '@babel/preset-typescript'],
   }),
 
 	webpackFinal: async (config, { configType }) => {

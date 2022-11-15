@@ -1,5 +1,6 @@
-import toPath from 'lodash/toPath';
 import Ajv from 'ajv';
+import toPath from 'lodash/toPath';
+
 import { deepEquals, getDefaultFormState, isObject, mergeObjects } from './form.helpers';
 
 let ajv = createAjvInstance();
@@ -75,7 +76,7 @@ function toErrorSchema(errors) {
 	}, {});
 }
 
-export function toErrorList(errorSchema, fieldName = 'root') {
+function toErrorList(errorSchema, fieldName = 'root') {
 	// XXX: We should transform fieldName as a full field path string.
 	let errorList = [];
 	if ('__errors' in errorSchema) {
@@ -160,7 +161,7 @@ function transformAjvErrors(errors = []) {
  * function, which receives the form data and an `errorHandler` object that
  * will be used to add custom validation errors for each field.
  */
-export default function validateFormData(
+function validateFormData(
 	formData,
 	schema,
 	customValidate,
@@ -285,7 +286,7 @@ export function withIdRefPrefix(schemaNode) {
  * false otherwise. If the schema is invalid, then this function will return
  * false.
  */
-export function isValid(schema, data, rootSchema) {
+function isValid(schema, data, rootSchema) {
 	try {
 		// add the rootSchema ROOT_SCHEMA_PREFIX as id.
 		// then rewrite the schema ref's to point to the rootSchema
@@ -299,3 +300,6 @@ export function isValid(schema, data, rootSchema) {
 		ajv.removeSchema(ROOT_SCHEMA_PREFIX);
 	}
 }
+
+export { toErrorList, isValid };
+export default validateFormData;

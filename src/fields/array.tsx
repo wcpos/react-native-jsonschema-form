@@ -1,11 +1,12 @@
 import * as React from 'react';
+
 import { useFormContext } from '../context';
 import { isMultiSelect, isCustomWidget, isFixedItems, isFilesArray } from '../form.helpers';
-import { NormalArray } from './normal-array';
-import { FixedArray } from './fixed-array';
-import { MultiSelectField } from './multi-select';
 import { CustomWidget } from './custom-widget';
 import { FilesArray } from './files-array';
+import { FixedArray } from './fixed-array';
+import { MultiSelectField } from './multi-select';
+import { NormalArray } from './normal-array';
 
 export const ArrayField = ({ schema, uiSchema, ...props }) => {
 	const { registry, rootSchema } = useFormContext();

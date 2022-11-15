@@ -1,7 +1,8 @@
-import mergeAllOf from 'json-schema-merge-allof';
 import fill from 'core-js-pure/features/array/fill';
-import union from 'lodash/union';
+import mergeAllOf from 'json-schema-merge-allof';
 import jsonpointer from 'jsonpointer';
+import union from 'lodash/union';
+
 import validateFormData, { isValid } from './validate';
 
 type Schema = import('json-schema').JSONSchema7;
@@ -10,7 +11,6 @@ type Widget = import('./types').Widget;
 type Registry = import('./types').Registry;
 
 export const ADDITIONAL_PROPERTY_FLAG = '__additional_property';
-
 
 export function canExpand(schema: Schema, uiSchema: UiSchema, formData: any) {
 	if (!schema.additionalProperties) {

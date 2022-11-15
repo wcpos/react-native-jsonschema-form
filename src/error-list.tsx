@@ -1,8 +1,10 @@
 import * as React from 'react';
+
 import { useTheme } from 'styled-components/native';
+
 import Box from '@wcpos/components/src/box';
-import Text from '@wcpos/components/src/text';
 import Icon from '@wcpos/components/src/icon';
+import Text from '@wcpos/components/src/text';
 
 type AjvError = {
 	message: string;

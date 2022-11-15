@@ -1,7 +1,8 @@
 import * as React from 'react';
+
+import { useFormContext } from '../context';
 import { getUiOptions } from '../form.helpers';
 import { getWidget } from '../widgets';
-import { useFormContext } from '../context';
 
 export const FilesArray = <T extends object>({
 	schema,

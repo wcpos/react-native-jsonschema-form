@@ -1,14 +1,18 @@
+import * as React from 'react';
+
 import cloneDeep from 'lodash/cloneDeep';
 import forEach from 'lodash/forEach';
 import set from 'lodash/set';
-import * as React from 'react';
 
 import { FormContextProvider } from './context';
 import { ErrorList } from './error-list';
+import fields from './fields';
 import { toIdSchema, getDefaultFormState, retrieveSchema } from './form.helpers';
 import { NodeTemplate } from './templates/node';
-import type { Schema, UiSchema, ErrorSchema } from './types';
 import { toErrorList } from './validate';
+import widgets from './widgets';
+
+import type { Schema, UiSchema, ErrorSchema } from './types';
 
 export interface FormProps<T> {
 	formData: T;
@@ -84,7 +88,13 @@ export const Form = <T extends object | string>({
 	 *
 	 */
 	return (
-		<FormContextProvider schema={schema} onChange={handleOnChange} formContext={formContext}>
+		<FormContextProvider
+			schema={schema}
+			onChange={handleOnChange}
+			formContext={formContext}
+			defaultFields={fields}
+			defaultWidgets={widgets}
+		>
 			{errors.length > 0 && <ErrorList errors={errors} />}
 			<NodeTemplate
 				schema={schema}

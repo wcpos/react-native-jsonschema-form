@@ -1,5 +1,7 @@
 import React from 'react';
+
 import * as ReactIs from 'react-is';
+
 import Checkbox from '@wcpos/components/src/checkbox';
 import Radio from '@wcpos/components/src/radio';
 import Select from '@wcpos/components/src/select';
@@ -7,6 +9,7 @@ import Slider from '@wcpos/components/src/slider';
 import Switch from '@wcpos/components/src/switch';
 import TextArea from '@wcpos/components/src/textarea';
 import TextInput from '@wcpos/components/src/textinput';
+
 import { getSchemaType } from './form.helpers';
 
 export default {

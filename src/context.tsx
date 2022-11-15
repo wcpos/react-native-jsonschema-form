@@ -1,13 +1,14 @@
 import * as React from 'react';
-import fields from './fields';
-import widgets from './widgets';
+
+// import fields from './fields';
+// import widgets from './widgets';
 
 import type { Schema } from './types';
 
 interface FormContextProps {
 	registry: {
-		fields: typeof fields;
-		widgets: typeof widgets;
+		fields: any;
+		widgets: any;
 	};
 	rootSchema: Schema;
 	onChange: (change: any) => void;
@@ -20,6 +21,8 @@ interface FormContextProviderProps {
 	schema: Schema;
 	onChange: (change: any) => void;
 	formContext: any;
+	defaultFields: any;
+	defaultWidgets: any;
 }
 
 export const FormContextProvider = ({
@@ -27,12 +30,14 @@ export const FormContextProvider = ({
 	schema,
 	onChange,
 	formContext,
+	defaultFields,
+	defaultWidgets,
 }: FormContextProviderProps) => {
 	const value = React.useMemo(() => {
 		return {
 			registry: {
-				fields,
-				widgets,
+				fields: defaultFields,
+				widgets: defaultWidgets,
 			},
 			rootSchema: Object.freeze(schema),
 			onChange,
