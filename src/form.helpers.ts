@@ -18,11 +18,11 @@ const ROOT_SCHEMA_PREFIX = '__rjsf_rootSchema';
 
 function createAjvInstance() {
 	const ajv = new Ajv({
-		errorDataPath: 'property',
+		// errorDataPath: 'property',
 		allErrors: true,
 		multipleOfPrecision: 8,
 		schemaId: 'auto',
-		unknownFormats: 'ignore',
+		// unknownFormats: 'ignore',
 	});
 
 	// add custom formats

@@ -1,6 +1,6 @@
 {
 	"name": "@wcpos/react-native-jsonschema-form",
-	"version": "0.0.24",
+	"version": "0.0.25",
 	"description": "A platform agnostic component (native/web) for building forms with JSON Schema",
 	"author": "kilbot <paul@kilbot.com>",
 	"homepage": "https://github.com/wcpos/react-native-jsonschema-form#readme",
@@ -32,7 +32,7 @@
 		"react-dom": "18.1.0",
 		"react-is": "18.2.0",
 		"react-native": "0.70.5",
-		"react-native-reanimated": "^2.12.0",
+		"react-native-reanimated": "2.13.0",
 		"react-native-web": "~0.18.10",
 		"styled-components": "5.3.6"
 	},
