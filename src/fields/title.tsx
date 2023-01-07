@@ -1,18 +1,17 @@
 import * as React from 'react';
-import Text from '@wcpos/components/src/text';
-import Box from '@wcpos/components/src/box';
 
-const REQUIRED_FIELD_SYMBOL = '*';
+import Box from '@wcpos/components/src/box';
+import Text from '@wcpos/components/src/text';
 
 interface TitleFieldProps {
 	title: string;
 	required?: boolean;
 }
 
-export const TitleField = ({ title, required }: TitleFieldProps) => {
+export const TitleField = ({ title }: TitleFieldProps) => {
 	return (
 		<Box horizontal>
-			<Text size="large">{title}</Text> {required && <Text>{REQUIRED_FIELD_SYMBOL}</Text>}
+			<Text size="large">{title}</Text>
 		</Box>
 	);
 };

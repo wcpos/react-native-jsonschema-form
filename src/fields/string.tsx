@@ -40,7 +40,9 @@ export const StringField = ({ schema, formData, name, idSchema, uiSchema }: Stri
 	const handleOnChange = React.useCallback(
 		(val: any) => {
 			if (widget === 'select') {
-				onChange({ [idSchema.$id]: val.value });
+				setValue(val); // @TODO  - value doesn't update on render
+				// Note: make this consistent, onChange just emits the value
+				onChange({ [idSchema.$id]: val });
 			} else {
 				setValue(val);
 			}

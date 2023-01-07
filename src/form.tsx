@@ -61,7 +61,7 @@ export const Form = <T extends object | string>({
 	const errors = React.useMemo(() => toErrorList(extraErrors), [extraErrors]);
 
 	/**
-	 *
+	 * @TODO - form should only emit changes, not the whole form data
 	 */
 	const handleOnChange = React.useCallback(
 		(changes) => {
