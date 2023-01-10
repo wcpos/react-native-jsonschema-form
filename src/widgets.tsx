@@ -3,6 +3,7 @@ import React from 'react';
 import * as ReactIs from 'react-is';
 
 import Checkbox from '@wcpos/components/src/checkbox';
+import Combobox from '@wcpos/components/src/combobox';
 import Radio from '@wcpos/components/src/radio';
 import Select from '@wcpos/components/src/select';
 import Slider from '@wcpos/components/src/slider';
@@ -20,6 +21,7 @@ export default {
 	Switch,
 	TextArea,
 	TextInput,
+	Combobox,
 };
 
 /**
@@ -42,8 +44,9 @@ export const widgetMap = {
 		ipv6: 'TextInput',
 		uri: 'URLWidget',
 		'data-url': 'FileWidget',
-		radio: 'RadioWidget',
+		radio: 'RadioGroup',
 		select: 'Select',
+		combobox: 'Combobox',
 		textarea: 'TextArea',
 		hidden: 'HiddenWidget',
 		date: 'DateWidget',
