@@ -1,21 +1,17 @@
 import * as React from 'react';
+
+import { getUiOptions } from '@rjsf/utils';
+
+import { useFormContext } from '../context';
 import { ArrayTemplate } from '../templates/array';
 import { NodeTemplate } from '../templates/node';
-import { useFormContext } from '../context';
-import { generateKeyedFormData, generateRowId } from './array.helpers';
-import {
-	toIdSchema,
-	isFixedItems,
-	allowAdditionalItems,
-	getDefaultFormState,
-	getUiOptions,
-} from '../form.helpers';
+import { generateKeyedFormData } from './array.helpers';
 
 /**
  *
  */
 export const NormalArray = ({ schema, uiSchema, formData, name, idSchema }) => {
-	const { registry, onChange, rootSchema } = useFormContext();
+	const { onChange, schemaUtils } = useFormContext();
 
 	/**
 	 * @TODO - need to handle errorSchema
@@ -54,7 +50,7 @@ export const NormalArray = ({ schema, uiSchema, formData, name, idSchema }) => {
 			/**
 			 *  @TODO - toIdSchema function sucks, need to refactor
 			 */
-			const nodeIdSchema = toIdSchema(schema.items, `${idSchema.$id}.${index}`, rootSchema, item);
+			const nodeIdSchema = schemaUtils.toIdSchema(schema.items, `${idSchema.$id}.${index}`);
 
 			return {
 				key,
@@ -79,8 +75,8 @@ export const NormalArray = ({ schema, uiSchema, formData, name, idSchema }) => {
 		handleRemoveIndex,
 		handleReorder,
 		idSchema.$id,
-		rootSchema,
 		schema.items,
+		schemaUtils,
 		uiSchema.items,
 	]);
 
@@ -88,8 +84,8 @@ export const NormalArray = ({ schema, uiSchema, formData, name, idSchema }) => {
 	 *
 	 */
 	const getNewFormDataRow = React.useCallback(() => {
-		return getDefaultFormState(schema.items, undefined, rootSchema);
-	}, [rootSchema, schema]);
+		return schemaUtils.getDefaultFormState(schema.items, undefined);
+	}, [schema.items, schemaUtils]);
 
 	/**
 	 *

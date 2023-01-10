@@ -1,18 +1,19 @@
 import * as React from 'react';
 
+import { getUiOptions, optionsList } from '@rjsf/utils';
+
 import { useFormContext } from '../context';
-import { retrieveSchema, optionsList, getUiOptions } from '../form.helpers';
 import { getWidget } from '../widgets';
 
 export const MultiSelectField = ({ schema, formData, uiSchema, name, ...props }) => {
-	const { registry, rootSchema } = useFormContext();
-	const itemsSchema = retrieveSchema(schema.items, rootSchema, formData);
+	const { widgets, schemaUtils } = useFormContext();
+	const itemsSchema = schemaUtils.retrieveSchema(schema.items, formData);
 	const enumOptions = optionsList(itemsSchema);
 	const { widget = 'select', ...options } = {
 		...getUiOptions(uiSchema),
 		enumOptions,
 	};
-	const Widget = getWidget(schema, widget, registry.widgets);
+	const Widget = getWidget(schema, widget, widgets);
 
 	return (
 		<Widget

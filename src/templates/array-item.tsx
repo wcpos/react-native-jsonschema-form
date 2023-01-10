@@ -1,6 +1,7 @@
 import * as React from 'react';
-import Button from '@wcpos/components/src/button';
+
 import Box from '@wcpos/components/src/box';
+import Button from '@wcpos/components/src/button';
 import Icon from '@wcpos/components/src/icon';
 
 export const ArrayItemTemplate = ({

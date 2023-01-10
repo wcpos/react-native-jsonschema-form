@@ -1,11 +1,11 @@
 import * as React from 'react';
 
+import { getSchemaType } from '@rjsf/utils';
 import get from 'lodash/get';
 
 import Box from '@wcpos/components/src/box';
 
 import { useFormContext } from '../context';
-import { getSchemaType } from '../form.helpers';
 
 type Schema = import('../types').Schema;
 
@@ -70,10 +70,10 @@ export const NodeTemplate = ({
 	name,
 	idSchema,
 }: NodeTemplateProps) => {
-	const { registry } = useFormContext();
+	const { fields } = useFormContext();
 	const FieldComponent = React.useMemo(
-		() => getFieldComponent(schema, uiSchema, registry.fields),
-		[registry.fields, schema, uiSchema]
+		() => getFieldComponent(schema, uiSchema, fields),
+		[fields, schema, uiSchema]
 	);
 
 	return (

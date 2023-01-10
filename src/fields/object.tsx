@@ -1,8 +1,10 @@
 import * as React from 'react';
+
+import { orderProperties } from '@rjsf/utils';
 import get from 'lodash/get';
-import { ObjectTemplate } from '../templates/object';
-import { orderProperties } from '../form.helpers';
+
 import { NodeTemplate } from '../templates/node';
+import { ObjectTemplate } from '../templates/object';
 
 interface ObjectFieldProps {
 	schema: import('../types').Schema;

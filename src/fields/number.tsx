@@ -1,5 +1,7 @@
 import * as React from 'react';
-import { asNumber } from '../form.helpers';
+
+import { asNumber } from '@rjsf/utils';
+
 import { useFormContext } from '../context';
 
 // Matches a string that ends in a . character, optionally followed by a sequence of
@@ -17,14 +19,14 @@ const trailingCharMatcher = /[0.]0*$/;
 /**
  *
  */
-export function NumberField<T extends object>({
-	formData,
-	...props
-}: import('../types').FieldProps<T>): React.ReactElement {
-	const { registry, onChange } = useFormContext();
-	const { StringField } = registry.fields;
+export function NumberField({ formData, ...props }): React.ReactElement {
+	const { fields, onChange } = useFormContext();
+	const { StringField } = fields;
 	const [lastValue, setLastValue] = React.useState(props.value);
 
+	/**
+	 *
+	 */
 	const value = React.useMemo(() => {
 		if (typeof lastValue === 'string' && typeof value === 'number') {
 			// Construct a regular expression that checks for a string that consists
@@ -41,6 +43,9 @@ export function NumberField<T extends object>({
 		return formData;
 	}, [formData, lastValue]);
 
+	/**
+	 *
+	 */
 	const handleChange = React.useCallback(
 		(value: string) => {
 			// Cache the original value in component state

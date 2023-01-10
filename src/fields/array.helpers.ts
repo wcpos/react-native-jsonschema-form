@@ -1,6 +1,5 @@
+import { getUiOptions } from '@rjsf/utils';
 import { nanoid } from 'nanoid';
-
-import { getUiOptions } from '../form.helpers';
 
 type Schema = import('json-schema').JSONSchema7;
 type UiSchema = import('../types').UiSchema;

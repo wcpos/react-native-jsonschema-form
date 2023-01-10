@@ -11,8 +11,8 @@ import { useFormContext } from '../context';
 import { ArrayItemTemplate } from './array-item';
 
 export const ArrayTemplate = ({ uiSchema, schema, items, canAdd, onAdd, disabled, readonly }) => {
-	const { registry } = useFormContext();
-	const { TitleField, DescriptionField } = registry.fields;
+	const { fields } = useFormContext();
+	const { TitleField, DescriptionField } = fields;
 	const collapsible = get(uiSchema, 'ui:collapsible', false);
 	const title = get(uiSchema, 'ui:title', schema.title);
 	const description = get(uiSchema, 'ui:description', schema.description);

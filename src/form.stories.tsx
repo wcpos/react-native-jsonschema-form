@@ -1,18 +1,21 @@
 import * as React from 'react';
-import { action } from '@storybook/addon-actions';
 import { View } from 'react-native';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
+
+import { action } from '@storybook/addon-actions';
+import { StoryWrapper } from '@storybook/addons';
+import cloneDeep from 'lodash/cloneDeep';
+import delay from 'lodash/delay';
+import find from 'lodash/find';
 import map from 'lodash/map';
 import set from 'lodash/set';
-import delay from 'lodash/delay';
-import cloneDeep from 'lodash/cloneDeep';
-import find from 'lodash/find';
-import { StoryWrapper } from '@storybook/addons';
-import { AppProviderSizeProvider } from '@wcpos/hooks/src/use-position-in-app';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+
 import Portal from '@wcpos/components/src/portal';
+import { AppProviderSizeProvider } from '@wcpos/hooks/src/use-position-in-app';
+
+import countriesResponse from './countries.json';
 import { Form } from './form';
 import { FormProps } from './types';
-import countriesResponse from './countries.json';
 
 /**
  * Select require (uses Popover)

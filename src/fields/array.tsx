@@ -1,7 +1,8 @@
 import * as React from 'react';
 
+import { isFixedItems, isCustomWidget } from '@rjsf/utils';
+
 import { useFormContext } from '../context';
-import { isMultiSelect, isCustomWidget, isFixedItems, isFilesArray } from '../form.helpers';
 import { CustomWidget } from './custom-widget';
 import { FilesArray } from './files-array';
 import { FixedArray } from './fixed-array';
@@ -9,14 +10,14 @@ import { MultiSelectField } from './multi-select';
 import { NormalArray } from './normal-array';
 
 export const ArrayField = ({ schema, uiSchema, ...props }) => {
-	const { registry, rootSchema } = useFormContext();
+	const { fields, schemaUtils } = useFormContext();
 
 	if (!Object.prototype.hasOwnProperty.call(schema, 'items')) {
-		const { UnsupportedField } = registry.fields;
+		const { UnsupportedField } = fields;
 		return <UnsupportedField schema={schema} reason="Missing items definition" />;
 	}
 
-	if (isMultiSelect(schema, rootSchema)) {
+	if (schemaUtils.isMultiSelect(schema)) {
 		// If array has enum or uniqueItems set to true, call renderMultiSelect() to render the default multiselect widget or a custom widget, if specified.
 		return <MultiSelectField {...props} schema={schema} uiSchema={uiSchema} />;
 	}
@@ -26,7 +27,7 @@ export const ArrayField = ({ schema, uiSchema, ...props }) => {
 	if (isFixedItems(schema)) {
 		return <FixedArray {...props} schema={schema} uiSchema={uiSchema} />;
 	}
-	if (isFilesArray(schema, uiSchema, rootSchema)) {
+	if (schemaUtils.isFilesArray(schema, uiSchema)) {
 		return <FilesArray {...props} schema={schema} uiSchema={uiSchema} />;
 	}
 	return <NormalArray {...props} schema={schema} uiSchema={uiSchema} />;

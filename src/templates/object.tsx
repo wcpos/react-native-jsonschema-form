@@ -1,7 +1,10 @@
 import * as React from 'react';
+
 import get from 'lodash/get';
+
 import Box from '@wcpos/components/src/box';
 import Collapsible from '@wcpos/components/src/collapsible';
+
 import { useFormContext } from '../context';
 
 interface ObjectTemplateProps {
@@ -12,8 +15,8 @@ interface ObjectTemplateProps {
 }
 
 export const ObjectTemplate = ({ uiSchema, required, properties, schema }: ObjectTemplateProps) => {
-	const { registry } = useFormContext();
-	const { TitleField, DescriptionField } = registry.fields;
+	const { fields } = useFormContext();
+	const { TitleField, DescriptionField } = fields;
 	const title = get(uiSchema, 'ui:title', schema.title);
 	const description = get(uiSchema, 'ui:description', schema.description);
 

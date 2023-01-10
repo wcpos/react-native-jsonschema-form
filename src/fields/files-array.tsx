@@ -1,7 +1,8 @@
 import * as React from 'react';
 
+import { getUiOptions } from '@rjsf/utils';
+
 import { useFormContext } from '../context';
-import { getUiOptions } from '../form.helpers';
 import { getWidget } from '../widgets';
 
 export const FilesArray = <T extends object>({
@@ -11,9 +12,9 @@ export const FilesArray = <T extends object>({
 	uiSchema,
 	...props
 }: import('../../types').FieldProps<T>) => {
-	const { registry } = useFormContext();
+	const { widgets } = useFormContext();
 	const { widget = 'files', ...options } = getUiOptions(uiSchema);
-	const Widget = getWidget(schema, widget, registry.widgets);
+	const Widget = getWidget(schema, widget, widgets);
 
 	const handleSelectChange = React.useCallback(
 		(value) => {

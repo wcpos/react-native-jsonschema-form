@@ -1,30 +1,23 @@
 import * as React from 'react';
 
+import { getUiOptions, allowAdditionalItems, isFixedItems } from '@rjsf/utils';
 import cloneDeep from 'lodash/cloneDeep';
 
 import { useFormContext } from '../context';
-import {
-	retrieveSchema,
-	allowAdditionalItems,
-	toIdSchema,
-	isFixedItems,
-	getDefaultFormState,
-	getUiOptions,
-} from '../form.helpers';
 import { ArrayTemplate } from '../templates/array';
 import { NodeTemplate } from '../templates/node';
 import { generateKeyedFormData, generateRowId } from './array.helpers';
 
 export const FixedArray = ({ schema, formData, uiSchema, idSchema, errorSchema, onChange }) => {
-	const { rootSchema } = useFormContext();
+	const { rootSchema, schemaUtils } = useFormContext();
 
 	const itemSchemas = React.useMemo(
-		() => schema.items.map((item, index) => retrieveSchema(item, rootSchema, formData[index])),
-		[formData, rootSchema, schema.items]
+		() => schema.items.map((item, index) => schemaUtils.retrieveSchema(schema, formData[index])),
+		[formData, schema, schemaUtils]
 	);
 
 	const additionalSchema = allowAdditionalItems(schema)
-		? retrieveSchema(schema.additionalItems, rootSchema, formData)
+		? schemaUtils.retrieveSchema(schema.additionalItems, formData)
 		: null;
 
 	/**
@@ -69,9 +62,9 @@ export const FixedArray = ({ schema, formData, uiSchema, idSchema, errorSchema, 
 			const { key, item } = keyedItem;
 			const additional = index >= itemSchemas.length;
 			const itemSchema = additional
-				? retrieveSchema(schema.additionalItems, rootSchema, item)
+				? schemaUtils.retrieveSchema(schema.additionalItems, item)
 				: itemSchemas[index];
-			const nodeIdSchema = toIdSchema(itemSchema, `${idSchema.$id}.${index}`, rootSchema, item);
+			const nodeIdSchema = schemaUtils.toIdSchema(itemSchema, `${idSchema.$id}.${index}`);
 			const nodeUiSchema = additional
 				? uiSchema.additionalItems || {}
 				: Array.isArray(uiSchema.items)
@@ -105,9 +98,9 @@ export const FixedArray = ({ schema, formData, uiSchema, idSchema, errorSchema, 
 		handleReorder,
 		idSchema.$id,
 		itemSchemas,
-		rootSchema,
 		schema.additionalItems,
 		schema.items,
+		schemaUtils,
 		uiSchema.additionalItems,
 		uiSchema.items,
 	]);
@@ -120,8 +113,8 @@ export const FixedArray = ({ schema, formData, uiSchema, idSchema, errorSchema, 
 		if (isFixedItems(schema) && allowAdditionalItems(schema)) {
 			itemSchema = schema.additionalItems;
 		}
-		return getDefaultFormState(itemSchema, undefined, rootSchema);
-	}, [rootSchema, schema]);
+		return schemaUtils.getDefaultFormState(itemSchema, undefined);
+	}, [schema, schemaUtils]);
 
 	/**
 	 *

@@ -1,53 +1,49 @@
 import * as React from 'react';
 
-// import fields from './fields';
-// import widgets from './widgets';
+import {
+	createSchemaUtils,
+	StrictRJSFSchema,
+	RJSFSchema,
+	FormContextType,
+	ValidatorType,
+	IdSchema,
+	UiSchema,
+	SchemaUtilsType,
+	RJSFValidationError,
+	ErrorSchema,
+} from '@rjsf/utils';
 
-import type { Schema } from './types';
-
-interface FormContextProps {
-	registry: {
-		fields: any;
-		widgets: any;
-	};
-	rootSchema: Schema;
-	onChange: (change: any) => void;
+/**
+ *
+ */
+interface FormContextProps<
+	T = any,
+	S extends StrictRJSFSchema = RJSFSchema,
+	F extends FormContextType = any
+> {
+	fields: any;
+	widgets: any;
+	rootSchema: S;
+	onChange: any;
+	context: F;
+	schemaUtils: SchemaUtilsType<T, S, F>;
 }
 
-const FormContext = React.createContext<FormContextProps>(null);
+/**
+ *
+ */
+export const FormContext = React.createContext<FormContextProps>({
+	fields: {},
+	widgets: {},
+	rootSchema: {},
+	onChange: () => {},
+	context: null,
+	schemaUtils: null,
+});
 
-interface FormContextProviderProps {
-	children: React.ReactNode;
-	schema: Schema;
-	onChange: (change: any) => void;
-	formContext: any;
-	defaultFields: any;
-	defaultWidgets: any;
-}
-
-export const FormContextProvider = ({
-	children,
-	schema,
-	onChange,
-	formContext,
-	defaultFields,
-	defaultWidgets,
-}: FormContextProviderProps) => {
-	const value = React.useMemo(() => {
-		return {
-			registry: {
-				fields: defaultFields,
-				widgets: defaultWidgets,
-			},
-			rootSchema: Object.freeze(schema),
-			onChange,
-			formContext,
-		};
-	}, [formContext, onChange, schema]);
-
-	return <FormContext.Provider value={value}>{children}</FormContext.Provider>;
-};
-
+/**
+ *
+ */
 export const useFormContext = () => {
 	const context = React.useContext(FormContext);
 	if (!context) {
