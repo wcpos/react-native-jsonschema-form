@@ -1,11 +1,14 @@
 import * as React from 'react';
+
 import get from 'lodash/get';
-import Button from '@wcpos/components/src/button';
+
 import Box from '@wcpos/components/src/box';
-import Icon from '@wcpos/components/src/icon';
+import Button from '@wcpos/components/src/button';
 import Collapsible from '@wcpos/components/src/collapsible';
-import { ArrayItemTemplate } from './array-item';
+import Icon from '@wcpos/components/src/icon';
+
 import { useFormContext } from '../context';
+import { ArrayItemTemplate } from './array-item';
 
 export const ArrayTemplate = ({ uiSchema, schema, items, canAdd, onAdd, disabled, readonly }) => {
 	const { registry } = useFormContext();
