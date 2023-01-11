@@ -46,19 +46,19 @@ export const ArrayItemTemplate = ({
 					<Button.Group size="small">
 						{(canMoveUp || canMoveDown) && (
 							<Button disabled={disabled || readonly || !canMoveUp} onPress={handleMoveUpPress}>
-								<Icon size="xSmall" name="arrowUp" />
+								<Icon size="xSmall" name="arrowUp" type="inverse" />
 							</Button>
 						)}
 
 						{(canMoveUp || canMoveDown) && (
 							<Button disabled={disabled || readonly || !canMoveDown} onPress={handleMoveDownPress}>
-								<Icon size="xSmall" name="arrowDown" />
+								<Icon size="xSmall" name="arrowDown" type="inverse" />
 							</Button>
 						)}
 
 						{canRemove && (
 							<Button type="critical" disabled={disabled || readonly} onPress={handleRemovePress}>
-								<Icon size="xSmall" name="xmark" />
+								<Icon size="xSmall" name="xmark" type="inverse" />
 							</Button>
 						)}
 					</Button.Group>

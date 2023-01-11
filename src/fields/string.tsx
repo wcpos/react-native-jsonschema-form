@@ -15,19 +15,17 @@ export const StringField = ({ schema, formData, name, idSchema, uiSchema }: Stri
 	const [value, setValue] = React.useState(formData);
 	const { widgets, onChange, context, schemaUtils } = useFormContext();
 	const enumOptions = schemaUtils.isSelect(schema) && optionsList(schema);
-	let defaultWidget = 'text';
+	let defaultWidget = enumOptions
+		? enumOptions.length <= 4
+			? 'radio'
+			: enumOptions.length >= 15
+			? 'combobox'
+			: 'select'
+		: 'text';
 
-	if (enumOptions) {
-		// if (enumOptions.length <= 3) {
-		// 	defaultWidget = 'radio';
-		// }
-		if (enumOptions.length >= 15) {
-			defaultWidget = 'combobox';
-		} else {
-			defaultWidget = 'select';
-		}
-	}
-
+	/**
+	 *
+	 */
 	if (schema.format && hasWidget(schema, schema.format, widgets)) {
 		defaultWidget = schema.format;
 	}
@@ -51,7 +49,7 @@ export const StringField = ({ schema, formData, name, idSchema, uiSchema }: Stri
 	 */
 	const handleOnChange = React.useCallback(
 		(val: any) => {
-			if (widget === 'select' || widget === 'combobox') {
+			if (widget === 'select' || widget === 'combobox' || widget === 'radio') {
 				setValue(val); // @TODO  - value doesn't update on render
 				// Note: make this consistent, onChange just emits the value
 				onChange({ [idSchema.$id]: val });

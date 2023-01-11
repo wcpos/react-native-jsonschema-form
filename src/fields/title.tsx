@@ -11,7 +11,9 @@ interface TitleFieldProps {
 export const TitleField = ({ title }: TitleFieldProps) => {
 	return (
 		<Box horizontal>
-			<Text size="large">{title}</Text>
+			<Text size="medium" weight="medium">
+				{title}
+			</Text>
 		</Box>
 	);
 };

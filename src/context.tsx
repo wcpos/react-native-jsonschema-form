@@ -27,6 +27,8 @@ interface FormContextProps<
 	onChange: any;
 	context: F;
 	schemaUtils: SchemaUtilsType<T, S, F>;
+	idPrefix: string;
+	idSeparator: string;
 }
 
 /**
@@ -39,6 +41,8 @@ export const FormContext = React.createContext<FormContextProps>({
 	onChange: () => {},
 	context: null,
 	schemaUtils: null,
+	idPrefix: '',
+	idSeparator: '',
 });
 
 /**

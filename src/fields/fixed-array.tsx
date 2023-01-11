@@ -9,7 +9,7 @@ import { NodeTemplate } from '../templates/node';
 import { generateKeyedFormData, generateRowId } from './array.helpers';
 
 export const FixedArray = ({ schema, formData, uiSchema, idSchema, errorSchema, onChange }) => {
-	const { rootSchema, schemaUtils } = useFormContext();
+	const { rootSchema, schemaUtils, idPrefix, idSeparator } = useFormContext();
 
 	const itemSchemas = React.useMemo(
 		() => schema.items.map((item, index) => schemaUtils.retrieveSchema(schema, formData[index])),
@@ -64,7 +64,13 @@ export const FixedArray = ({ schema, formData, uiSchema, idSchema, errorSchema, 
 			const itemSchema = additional
 				? schemaUtils.retrieveSchema(schema.additionalItems, item)
 				: itemSchemas[index];
-			const nodeIdSchema = schemaUtils.toIdSchema(itemSchema, `${idSchema.$id}.${index}`);
+			const nodeIdSchema = schemaUtils.toIdSchema(
+				schema.items,
+				`${idSchema.$id}${idSeparator}${index}`,
+				item,
+				idPrefix,
+				idSeparator
+			);
 			const nodeUiSchema = additional
 				? uiSchema.additionalItems || {}
 				: Array.isArray(uiSchema.items)
@@ -96,7 +102,9 @@ export const FixedArray = ({ schema, formData, uiSchema, idSchema, errorSchema, 
 		formData,
 		handleRemoveIndex,
 		handleReorder,
+		idPrefix,
 		idSchema.$id,
+		idSeparator,
 		itemSchemas,
 		schema.additionalItems,
 		schema.items,

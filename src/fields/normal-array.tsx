@@ -11,7 +11,7 @@ import { generateKeyedFormData } from './array.helpers';
  *
  */
 export const NormalArray = ({ schema, uiSchema, formData, name, idSchema }) => {
-	const { onChange, schemaUtils } = useFormContext();
+	const { onChange, schemaUtils, idPrefix, idSeparator } = useFormContext();
 
 	/**
 	 * @TODO - need to handle errorSchema
@@ -47,10 +47,13 @@ export const NormalArray = ({ schema, uiSchema, formData, name, idSchema }) => {
 
 		return keyedFormData.map((keyedItem, index) => {
 			const { key, item } = keyedItem;
-			/**
-			 *  @TODO - toIdSchema function sucks, need to refactor
-			 */
-			const nodeIdSchema = schemaUtils.toIdSchema(schema.items, `${idSchema.$id}.${index}`);
+			const nodeIdSchema = schemaUtils.toIdSchema(
+				schema.items,
+				`${idSchema.$id}${idSeparator}${index}`,
+				item,
+				idPrefix,
+				idSeparator
+			);
 
 			return {
 				key,
@@ -74,7 +77,9 @@ export const NormalArray = ({ schema, uiSchema, formData, name, idSchema }) => {
 		formData,
 		handleRemoveIndex,
 		handleReorder,
+		idPrefix,
 		idSchema.$id,
+		idSeparator,
 		schema.items,
 		schemaUtils,
 		uiSchema.items,

@@ -77,7 +77,10 @@ export const NodeTemplate = ({
 	);
 
 	return (
-		<Box style={{ paddingLeft: 10 }}>
+		<Box
+		// @TODO - allow uiSchema to pass styles?
+		// style={{ paddingLeft: 10 }}
+		>
 			<FieldComponent
 				schema={schema}
 				formData={formData}

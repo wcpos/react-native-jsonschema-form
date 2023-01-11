@@ -24,6 +24,7 @@ import TextInput from '@wcpos/components/src/textinput';
 export default {
 	Checkbox,
 	Radio,
+	RadioGroup: Radio.Group,
 	Select,
 	Slider,
 	Switch,
@@ -70,7 +71,7 @@ const widgetMap: { [k: string]: { [j: string]: string } } = {
 		select: 'Select',
 		updown: 'UpDownWidget',
 		range: 'Slider',
-		radio: 'Radio',
+		radio: 'RadioGroup',
 		hidden: 'HiddenWidget',
 	},
 	integer: {
@@ -78,7 +79,7 @@ const widgetMap: { [k: string]: { [j: string]: string } } = {
 		select: 'Select',
 		updown: 'UpDownWidget',
 		range: 'Slider',
-		radio: 'Radio',
+		radio: 'RadioGroup',
 		hidden: 'HiddenWidget',
 	},
 	array: {

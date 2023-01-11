@@ -177,6 +177,12 @@ export const Form = <T extends object | string>({
 				rootSchema,
 				onChange: handleOnChange,
 				context: props.formContext,
+				/**
+				 * Passing the `idPrefix` and `idSeparator` to the context allows fields to access the props
+				 * @TODO - this should really be part of the SchemaUtils class helpers
+				 */
+				idPrefix,
+				idSeparator,
 			}}
 		>
 			{errors.length > 0 && <ErrorList errors={errors} />}
