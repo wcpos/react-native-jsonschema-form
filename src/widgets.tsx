@@ -13,13 +13,13 @@ import set from 'lodash/set';
 import ReactIs from 'react-is';
 
 import Checkbox from '@wcpos/components/src/checkbox';
-import Combobox from '@wcpos/components/src/combobox';
-import Radio from '@wcpos/components/src/radio';
+import { ComboboxWithLabel as Combobox } from '@wcpos/components/src/combobox';
+import Radio, { RadioGroupWithLabel as RadioGroup } from '@wcpos/components/src/radio';
 import Select from '@wcpos/components/src/select';
 import Slider from '@wcpos/components/src/slider';
 import Switch from '@wcpos/components/src/switch';
 import TextArea from '@wcpos/components/src/textarea';
-import TextInput from '@wcpos/components/src/textinput';
+import { TextInputWithLabel as TextInput } from '@wcpos/components/src/textinput';
 
 export default {
 	Checkbox,
