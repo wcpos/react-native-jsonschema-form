@@ -16,7 +16,7 @@ export const StringField = ({ schema, formData, name, idSchema, uiSchema }: Stri
 	const { widgets, onChange, context, schemaUtils } = useFormContext();
 	const enumOptions = schemaUtils.isSelect(schema) && optionsList(schema);
 	let defaultWidget = enumOptions
-		? enumOptions.length <= 4
+		? enumOptions.length <= 2
 			? 'radio'
 			: enumOptions.length >= 15
 			? 'combobox'
@@ -82,6 +82,7 @@ export const StringField = ({ schema, formData, name, idSchema, uiSchema }: Stri
 			onChange={handleOnChange}
 			options={enumOptions}
 			placeholder={placeholder}
+			withinPortal
 			{...options}
 		/>
 	);
