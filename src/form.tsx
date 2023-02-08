@@ -12,7 +12,6 @@ import {
 	RJSFValidationError,
 	ErrorSchema,
 } from '@rjsf/utils';
-import validator from '@rjsf/validator-ajv8';
 import cloneDeep from 'lodash/cloneDeep';
 import forEach from 'lodash/forEach';
 import set from 'lodash/set';
@@ -21,6 +20,7 @@ import { FormContext } from './context';
 import { ErrorList } from './error-list';
 import fields from './fields';
 import { NodeTemplate } from './templates/node';
+import validator from './validator';
 import widgets from './widgets';
 
 /** The data that is contained within the state for the `Form` */
@@ -123,7 +123,7 @@ export const Form = <T extends object | string>({
 	...props
 }: FormProps<T>) => {
 	const rootSchema = schema;
-	const schemaUtils = createSchemaUtils(validator, rootSchema);
+	const schemaUtils = createSchemaUtils(validator({ foo: 'bar' }), rootSchema);
 	const formData = schemaUtils.getDefaultFormState(schema, rawFormData);
 	const retrievedSchema = schemaUtils.retrieveSchema(rootSchema, formData); // don't know why this is needed
 	const idSchema = schemaUtils.toIdSchema(
