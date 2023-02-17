@@ -143,7 +143,7 @@ export const Form = <T extends object | string>({
 	);
 
 	/**
-	 * @TODO - form should only emit changes, not the whole form data
+	 * TODO - form should only emit changes, not the whole form data
 	 */
 	const handleOnChange = React.useCallback(
 		(changes) => {
@@ -179,7 +179,7 @@ export const Form = <T extends object | string>({
 				context: props.formContext,
 				/**
 				 * Passing the `idPrefix` and `idSeparator` to the context allows fields to access the props
-				 * @TODO - this should really be part of the SchemaUtils class helpers
+				 * TODO - this should really be part of the SchemaUtils class helpers
 				 */
 				idPrefix,
 				idSeparator,

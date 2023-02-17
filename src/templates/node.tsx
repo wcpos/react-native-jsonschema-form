@@ -78,8 +78,8 @@ export const NodeTemplate = ({
 
 	return (
 		<Box
-		// @TODO - allow uiSchema to pass styles?
-		// style={{ paddingLeft: 10 }}
+			// TODO - allow uiSchema to pass styles?
+			paddingLeft={uiSchema['ui:indent'] ? 'large' : undefined}
 		>
 			<FieldComponent
 				schema={schema}

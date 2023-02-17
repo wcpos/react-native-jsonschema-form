@@ -21,7 +21,7 @@ export const FixedArray = ({ schema, formData, uiSchema, idSchema, errorSchema, 
 		: null;
 
 	/**
-	 * @TODO - need to handle errorSchema
+	 * TODO - need to handle errorSchema
 	 */
 	const handleReorder = React.useCallback(
 		(curr, next) => {
@@ -34,7 +34,7 @@ export const FixedArray = ({ schema, formData, uiSchema, idSchema, errorSchema, 
 	);
 
 	/**
-	 * @TODO - need to handle errorSchema
+	 * TODO - need to handle errorSchema
 	 */
 	const handleRemoveIndex = React.useCallback(
 		(idx) => {
@@ -46,7 +46,7 @@ export const FixedArray = ({ schema, formData, uiSchema, idSchema, errorSchema, 
 	);
 
 	/**
-	 * @TODO - do we really need to generate keys here?
+	 * TODO - do we really need to generate keys here?
 	 * - if form is being controlled, we can just use the schema id?
 	 */
 	const items = React.useMemo(() => {

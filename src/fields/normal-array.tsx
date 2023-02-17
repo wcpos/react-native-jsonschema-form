@@ -14,7 +14,7 @@ export const NormalArray = ({ schema, uiSchema, formData, name, idSchema }) => {
 	const { onChange, schemaUtils, idPrefix, idSeparator } = useFormContext();
 
 	/**
-	 * @TODO - need to handle errorSchema
+	 * TODO - need to handle errorSchema
 	 */
 	const handleReorder = React.useCallback(
 		(curr, next) => {
@@ -27,7 +27,7 @@ export const NormalArray = ({ schema, uiSchema, formData, name, idSchema }) => {
 	);
 
 	/**
-	 * @TODO - need to handle errorSchema
+	 * TODO - need to handle errorSchema
 	 */
 	const handleRemoveIndex = React.useCallback(
 		(idx) => {
@@ -39,7 +39,7 @@ export const NormalArray = ({ schema, uiSchema, formData, name, idSchema }) => {
 	);
 
 	/**
-	 * @TODO - do we really need to generate keys here?
+	 * TODO - do we really need to generate keys here?
 	 * - if form is being controlled, we can just use the schema id?
 	 */
 	const items = React.useMemo(() => {
