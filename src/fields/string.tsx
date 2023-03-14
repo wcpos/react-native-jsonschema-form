@@ -79,7 +79,7 @@ export const StringField = ({ schema, formData, name, idSchema, uiSchema }: Stri
 			label={label}
 			onBlur={handleOnBlur}
 			value={value}
-			onChange={handleOnChange}
+			onChangeText={handleOnChange}
 			options={enumOptions}
 			placeholder={placeholder}
 			withinPortal
