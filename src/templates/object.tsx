@@ -24,7 +24,7 @@ export const ObjectTemplate = ({ uiSchema, required, properties, schema }: Objec
 	if (collapsible) {
 		return (
 			<Box space="normal" paddingTop="small">
-				<Collapsible title={<TitleField title={title} />} initExpand={collapsible === 'open'}>
+				<Collapsible title={<TitleField title={title} />} initExpand={collapsible === 'opened'}>
 					<Box space="normal" paddingBottom="normal">
 						{description && <DescriptionField description={description} />}
 						{properties.map(({ content }) => content)}

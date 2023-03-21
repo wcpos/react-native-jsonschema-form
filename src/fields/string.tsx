@@ -79,8 +79,8 @@ export const StringField = ({ schema, formData, name, idSchema, uiSchema }: Stri
 			label={label}
 			onBlur={handleOnBlur}
 			value={value}
-			onChangeText={handleOnChange}
-			onChange={defaultWidget === 'radio' ? handleOnChange : undefined}
+			onChangeText={defaultWidget === 'text' ? handleOnChange : undefined}
+			onChange={defaultWidget !== 'text' ? handleOnChange : undefined}
 			options={enumOptions}
 			placeholder={placeholder}
 			withinPortal

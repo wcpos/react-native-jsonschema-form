@@ -7,8 +7,8 @@ import Button from '@wcpos/components/src/button';
 import Collapsible from '@wcpos/components/src/collapsible';
 import Icon from '@wcpos/components/src/icon';
 
-import { useFormContext } from '../context';
 import { ArrayItemTemplate } from './array-item';
+import { useFormContext } from '../context';
 
 export const ArrayTemplate = ({ uiSchema, schema, items, canAdd, onAdd, disabled, readonly }) => {
 	const { fields } = useFormContext();
