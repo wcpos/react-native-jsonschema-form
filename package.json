@@ -42,7 +42,7 @@
     "@storybook/addon-controls": "6.5.16",
     "@storybook/addon-essentials": "6.5.16",
     "@storybook/addon-knobs": "6.4.0",
-    "@storybook/addon-react-native-web": "0.0.19",
+    "@storybook/addon-react-native-web": "0.0.20",
     "@storybook/builder-webpack5": "6.5.16",
     "@storybook/manager-webpack5": "6.5.16",
     "@storybook/preset-create-react-app": "4.1.2",
