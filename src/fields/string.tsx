@@ -45,11 +45,16 @@ export const StringField = ({ schema, formData, name, idSchema, uiSchema }: Stri
 	}, [idSchema, onChange, value]);
 
 	/**
-	 *
+	 * TODO: I need to make this less fragile
 	 */
 	const handleOnChange = React.useCallback(
 		(val: any) => {
-			if (widget === 'select' || widget === 'combobox' || widget === 'radio') {
+			if (
+				widget === 'select' ||
+				widget === 'combobox' ||
+				widget === 'radio' ||
+				typeof widget !== 'string' // HACK: to fix for custom widgets, eg: select language
+			) {
 				setValue(val); // TODO  - value doesn't update on render
 				// Note: make this consistent, onChange just emits the value
 				onChange({ [idSchema.$id]: val });
