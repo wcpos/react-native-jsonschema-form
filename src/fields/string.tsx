@@ -85,7 +85,8 @@ export const StringField = ({ schema, formData, name, idSchema, uiSchema }: Stri
 			onBlur={handleOnBlur}
 			value={value}
 			onChangeText={defaultWidget === 'text' ? handleOnChange : undefined}
-			onChange={defaultWidget !== 'text' ? handleOnChange : undefined}
+			// HACK: fix for country select, defaultWidget is text, but uses combobox
+			onChange={defaultWidget !== 'text' || typeof widget !== 'string' ? handleOnChange : undefined}
 			options={enumOptions}
 			placeholder={placeholder}
 			withinPortal
