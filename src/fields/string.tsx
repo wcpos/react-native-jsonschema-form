@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import { optionsList, getUiOptions } from '@rjsf/utils';
+import debounce from 'lodash/debounce';
 
 import { useFormContext } from '../context';
 import { hasWidget, getWidget } from '../widgets';
@@ -34,19 +35,20 @@ export const StringField = ({ schema, formData, name, idSchema, uiSchema }: Stri
 	const Widget = getWidget(schema, widget, widgets);
 
 	/**
-	 * How best to handle changes?
-	 * - would rather if the textinput didn't update the form data on every change
-	 * - either use a ref to reach and get the value, or store temporary value in state here
-	 */
-	const handleOnBlur = React.useCallback(() => {
-		if (onChange) {
-			onChange({ [idSchema.$id]: value });
-		}
-	}, [idSchema, onChange, value]);
-
-	/**
 	 * TODO: I need to make this less fragile
+	 * - debounce is not needed for select, combobox, radio
+	 * - debounce is not needed for custom widgets
+	 * - debounce is needed for text, textarea
+	 *
+	 * - also need to keep value in sync with formData
 	 */
+	// eslint-disable-next-line react-hooks/exhaustive-deps
+	const debouncedOnChange = React.useCallback(
+		debounce((val: any) => {
+			onChange({ [idSchema.$id]: val });
+		}, 500), // Adjust the debounce time (in ms) as needed
+		[idSchema.$id, onChange]
+	);
 	const handleOnChange = React.useCallback(
 		(val: any) => {
 			if (
@@ -60,10 +62,14 @@ export const StringField = ({ schema, formData, name, idSchema, uiSchema }: Stri
 				onChange({ [idSchema.$id]: val });
 			} else {
 				setValue(val);
+				debouncedOnChange(val);
 			}
 		},
-		[idSchema.$id, onChange, widget]
+		[debouncedOnChange, idSchema.$id, onChange, widget]
 	);
+	React.useEffect(() => {
+		setValue(formData);
+	}, [formData]);
 
 	/**
 	 *
@@ -82,7 +88,6 @@ export const StringField = ({ schema, formData, name, idSchema, uiSchema }: Stri
 	return (
 		<Widget
 			label={label}
-			onBlur={handleOnBlur}
 			value={value}
 			onChangeText={defaultWidget === 'text' ? handleOnChange : undefined}
 			// HACK: fix for country select, defaultWidget is text, but uses combobox
