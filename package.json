@@ -1,6 +1,6 @@
 {
   "name": "@wcpos/react-native-jsonschema-form",
-  "version": "0.0.49",
+  "version": "0.0.50",
   "description": "A platform agnostic component (native/web) for building forms with JSON Schema",
   "author": "kilbot <paul@kilbot.com>",
   "homepage": "https://github.com/wcpos/react-native-jsonschema-form#readme",
@@ -22,7 +22,7 @@
     "react-refresh": "0.14.0"
   },
   "dependencies": {
-    "@rjsf/utils": "^5.7.3",
+    "@rjsf/utils": "^5.8.1",
     "@wcpos/components": "*",
     "@wcpos/utils": "*",
     "json-schema-merge-allof": "0.8.1",
@@ -31,28 +31,28 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-is": "18.2.0",
-    "react-native": "0.71.7",
-    "react-native-reanimated": "2.14.4",
+    "react-native": "0.71.8",
+    "react-native-reanimated": "2.17.0",
     "react-native-web": "~0.18.12",
-    "styled-components": "5.3.10"
+    "styled-components": "5.3.11"
   },
   "devDependencies": {
     "@babel/core": "^7.22.1",
-    "@storybook/addon-actions": "7.0.18",
-    "@storybook/addon-controls": "7.0.18",
-    "@storybook/addon-essentials": "7.0.18",
+    "@storybook/addon-actions": "7.0.20",
+    "@storybook/addon-controls": "7.0.20",
+    "@storybook/addon-essentials": "7.0.20",
     "@storybook/addon-knobs": "7.0.2",
     "@storybook/addon-react-native-web": "0.0.20",
-    "@storybook/builder-webpack5": "7.0.18",
+    "@storybook/builder-webpack5": "7.0.20",
     "@storybook/manager-webpack5": "6.5.16",
-    "@storybook/preset-create-react-app": "7.0.18",
-    "@storybook/react": "7.0.18",
+    "@storybook/preset-create-react-app": "7.0.20",
+    "@storybook/react": "7.0.20",
     "@testing-library/jest-dom": "5.16.5",
     "@testing-library/react": "^14.0.0",
     "@testing-library/react-hooks": "8.0.1",
-    "@types/jest": "^29.5.1",
+    "@types/jest": "^29.5.2",
     "@types/lodash": "4.14.195",
-    "@types/react": "^18.2.7",
+    "@types/react": "^18.2.8",
     "@types/react-dom": "~18.2.4",
     "@types/react-is": "^18.2.0",
     "@wcpos/babel-preset-expo": "^1.0.11",
@@ -66,7 +66,7 @@
     "react-test-renderer": "18.2.0",
     "ts-jest": "^29.1.0",
     "typescript": "^5.0.4",
-    "webpack": "5.84.1"
+    "webpack": "5.86.0"
   },
   "packageManager": "yarn@3.3.1",
   "eslintConfig": {
