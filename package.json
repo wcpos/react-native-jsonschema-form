@@ -1,6 +1,6 @@
 {
   "name": "@wcpos/react-native-jsonschema-form",
-  "version": "0.0.50",
+  "version": "0.0.51",
   "description": "A platform agnostic component (native/web) for building forms with JSON Schema",
   "author": "kilbot <paul@kilbot.com>",
   "homepage": "https://github.com/wcpos/react-native-jsonschema-form#readme",
@@ -38,15 +38,15 @@
   },
   "devDependencies": {
     "@babel/core": "^7.22.1",
-    "@storybook/addon-actions": "7.0.20",
-    "@storybook/addon-controls": "7.0.20",
-    "@storybook/addon-essentials": "7.0.20",
+    "@storybook/addon-actions": "7.0.21",
+    "@storybook/addon-controls": "7.0.21",
+    "@storybook/addon-essentials": "7.0.21",
     "@storybook/addon-knobs": "7.0.2",
     "@storybook/addon-react-native-web": "0.0.20",
-    "@storybook/builder-webpack5": "7.0.20",
+    "@storybook/builder-webpack5": "7.0.21",
     "@storybook/manager-webpack5": "6.5.16",
-    "@storybook/preset-create-react-app": "7.0.20",
-    "@storybook/react": "7.0.20",
+    "@storybook/preset-create-react-app": "7.0.21",
+    "@storybook/react": "7.0.21",
     "@testing-library/jest-dom": "5.16.5",
     "@testing-library/react": "^14.0.0",
     "@testing-library/react-hooks": "8.0.1",
@@ -66,7 +66,7 @@
     "react-test-renderer": "18.2.0",
     "ts-jest": "^29.1.0",
     "typescript": "^5.0.4",
-    "webpack": "5.86.0"
+    "webpack": "5.87.0"
   },
   "packageManager": "yarn@3.3.1",
   "eslintConfig": {
