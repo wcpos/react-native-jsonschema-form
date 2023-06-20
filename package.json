@@ -1,6 +1,6 @@
 {
   "name": "@wcpos/react-native-jsonschema-form",
-  "version": "0.0.51",
+  "version": "0.0.52",
   "description": "A platform agnostic component (native/web) for building forms with JSON Schema",
   "author": "kilbot <paul@kilbot.com>",
   "homepage": "https://github.com/wcpos/react-native-jsonschema-form#readme",
@@ -22,7 +22,7 @@
     "react-refresh": "0.14.0"
   },
   "dependencies": {
-    "@rjsf/utils": "^5.8.1",
+    "@rjsf/utils": "^5.8.2",
     "@wcpos/components": "*",
     "@wcpos/utils": "*",
     "json-schema-merge-allof": "0.8.1",
@@ -38,15 +38,15 @@
   },
   "devDependencies": {
     "@babel/core": "^7.22.1",
-    "@storybook/addon-actions": "7.0.21",
-    "@storybook/addon-controls": "7.0.21",
-    "@storybook/addon-essentials": "7.0.21",
+    "@storybook/addon-actions": "7.0.22",
+    "@storybook/addon-controls": "7.0.22",
+    "@storybook/addon-essentials": "7.0.22",
     "@storybook/addon-knobs": "7.0.2",
     "@storybook/addon-react-native-web": "0.0.20",
-    "@storybook/builder-webpack5": "7.0.21",
+    "@storybook/builder-webpack5": "7.0.22",
     "@storybook/manager-webpack5": "6.5.16",
-    "@storybook/preset-create-react-app": "7.0.21",
-    "@storybook/react": "7.0.21",
+    "@storybook/preset-create-react-app": "7.0.22",
+    "@storybook/react": "7.0.22",
     "@testing-library/jest-dom": "5.16.5",
     "@testing-library/react": "^14.0.0",
     "@testing-library/react-hooks": "8.0.1",
