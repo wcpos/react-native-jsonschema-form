@@ -16,7 +16,7 @@
   "scripts": {
     "test": "eslint --ext ts,tsx ./src",
     "storybook": "BABEL_SHOW_CONFIG_FOR=.storybook/preview.js start-storybook -p 9009 --debug-webpack",
-    "build-storybook": "build-storybook -o docs-build"
+    "build-storybook": "storybook build -o docs-build"
   },
   "resolutions": {
     "react-refresh": "0.14.0"

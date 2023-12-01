@@ -33,7 +33,7 @@ jobs:
           yarn install
 
       - name: Build project
-        run: npm run build-storybook
+        run: yarn build-storybook
 
       # - name: Run tests
       #   run: npm run test
