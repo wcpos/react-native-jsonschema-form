@@ -1,14 +1,12 @@
-const path = require('path');
-const webpack = require('webpack');
+import path from 'path';
+import webpack from 'webpack';
 
-module.exports = {
-	core: {
-    builder: 'webpack5',
-	},
-	
-	stories: ['../src/*.stories.tsx'],
+import type { StorybookConfig } from '@storybook/react-webpack5';
 
-	addons: [
+const config: StorybookConfig = {
+    stories: ['../src/*.stories.tsx'],
+
+    addons: [
 		'@storybook/preset-create-react-app',
 		'@storybook/addon-essentials',
 		'@storybook/addon-actions',
@@ -23,28 +21,30 @@ module.exports = {
 					'react-native-reanimated',
 					'react-native-gesture-handler'
 				],
-        babelPlugins: ['react-native-reanimated/plugin',  '@babel/plugin-proposal-export-namespace-from'],
+        babelPlugins: [
+          'react-native-reanimated/plugin',  
+          '@babel/plugin-proposal-export-namespace-from'
+        ],
       },
     },
 	],
 
-	// features: {
-  //   babelModeV7: true,
-  // },
+  framework: {
+      name: '@storybook/react-webpack5',
+      options: {}
+  },
 
-	framework: '@storybook/react',
-
-	typescript: {
+  typescript: {
 		// check: false,
 	},
 
-	babel: async (options) => ({
+  babel: async (options) => ({
     // Update your babel configuration here
     ...options,
-		presets: [['babel-preset-expo', { jsxRuntime: 'automatic' }], '@babel/preset-typescript'],
+		presets: ['@wcpos/babel-preset-expo'],
   }),
 
-	webpackFinal: async (config, { configType }) => {
+  webpackFinal: async (config, { configType }) => {
 		config.resolve.alias = {
 			...(config.resolve.alias || {}),
 			// Mock expo-haptics
@@ -53,4 +53,10 @@ module.exports = {
 
     return config;
 	},
+
+  docs: {
+    autodocs: true
+  }
 };
+
+export default config;

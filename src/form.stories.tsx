@@ -2,16 +2,13 @@ import * as React from 'react';
 import { View } from 'react-native';
 
 import { action } from '@storybook/addon-actions';
-import { StoryWrapper } from '@storybook/addons';
 import cloneDeep from 'lodash/cloneDeep';
 import delay from 'lodash/delay';
 import find from 'lodash/find';
 import map from 'lodash/map';
 import set from 'lodash/set';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import Portal from '@wcpos/components/src/portal';
-import { AppProviderSizeProvider } from '@wcpos/hooks/src/use-position-in-app';
 
 import countriesResponse from './countries.json';
 import { Form } from './form';
@@ -23,18 +20,12 @@ import { FormProps } from './types';
  * - Portals
  * - AppProviderSizeProvider
  */
-const AppProvider: StoryWrapper = (Story, context) => {
+const AppProvider = (Story, context) => {
 	return (
-		<SafeAreaProvider>
-			<AppProviderSizeProvider>
-				<Portal.Provider>
-					<View style={{ height: '600px' }}>
-						<Story {...context} />
-					</View>
-					<Portal.Manager />
-				</Portal.Provider>
-			</AppProviderSizeProvider>
-		</SafeAreaProvider>
+		<Portal.Provider>
+			<Story {...context} />
+			<Portal.Manager />
+		</Portal.Provider>
 	);
 };
 
