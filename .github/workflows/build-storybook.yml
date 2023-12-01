@@ -25,13 +25,15 @@ jobs:
           node-version: 16.x
 
       - name: Install NPM packages
+        env:
+          YARN_ENABLE_IMMUTABLE_INSTALLS: false
         run: |
           corepack enable
           corepack prepare yarn@3.3.1 --activate
           yarn install
 
       - name: Build project
-        run: npm run build-storybook
+        run: yarn build-storybook
 
       # - name: Run tests
       #   run: npm run test
