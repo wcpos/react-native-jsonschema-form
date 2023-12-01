@@ -25,7 +25,10 @@ jobs:
           node-version: 16.x
 
       - name: Install NPM packages
-        run: yarn install
+        run: |
+          corepack enable
+          corepack prepare yarn@3.3.1 --activate
+          yarn install
 
       - name: Build project
         run: npm run build-storybook
