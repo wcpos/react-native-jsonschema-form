@@ -41,7 +41,7 @@ const config: StorybookConfig = {
   babel: async (options) => ({
     // Update your babel configuration here
     ...options,
-		presets: ['@wcpos/babel-preset-expo'],
+		// presets: ['@wcpos/babel-preset-expo'],
   }),
 
   webpackFinal: async (config, { configType }) => {
