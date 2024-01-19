@@ -1,6 +1,6 @@
 {
   "name": "@wcpos/react-native-jsonschema-form",
-  "version": "0.0.67",
+  "version": "0.0.68",
   "description": "A platform agnostic component (native/web) for building forms with JSON Schema",
   "author": "kilbot <paul@kilbot.com>",
   "homepage": "https://github.com/wcpos/react-native-jsonschema-form#readme",
@@ -18,9 +18,6 @@
     "storybook": "storybook dev -p 9009",
     "build-storybook": "storybook build -o docs-build"
   },
-  "resolutions": {
-    "react-refresh": "0.14.0"
-  },
   "dependencies": {
     "@rjsf/utils": "^5.16.1",
     "@wcpos/components": "*",
@@ -31,7 +28,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-is": "18.2.0",
-    "react-native": "0.72.9",
+    "react-native": "0.73.2",
     "react-native-reanimated": "3.6.1",
     "react-native-web": "~0.19.10",
     "styled-components": "6.1.8",
@@ -44,7 +41,7 @@
     "@storybook/addon-controls": "7.5.3",
     "@storybook/addon-essentials": "7.5.3",
     "@storybook/addon-knobs": "7.0.2",
-    "@storybook/addon-react-native-web": "0.0.21",
+    "@storybook/addon-react-native-web": "0.0.22",
     "@storybook/preset-create-react-app": "7.5.3",
     "@storybook/react": "7.5.3",
     "@storybook/react-webpack5": "7.5.3",
