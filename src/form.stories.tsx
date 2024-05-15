@@ -49,7 +49,7 @@ export const BasicUsage = (props: FormProps) => {
 
 	const handleChange = React.useCallback((change, name) => {
 		action('onChange')(change);
-		setData(change);
+		setData(change.formData);
 	}, []);
 
 	return <Form<typeof data> {...props} formData={data} onChange={handleChange} />;
@@ -119,7 +119,7 @@ export const Nested = (props: FormProps) => {
 
 	const handleChange = React.useCallback((change) => {
 		action('onChange')(change);
-		setData(change);
+		setData(change.formData);
 	}, []);
 
 	return <Form<typeof data> {...props} formData={data} onChange={handleChange} />;
@@ -201,7 +201,7 @@ export const Arrays = (props: FormProps) => {
 
 	const handleChange = React.useCallback((change) => {
 		action('onChange')(change);
-		setData(change);
+		setData(change.formData);
 	}, []);
 
 	return <Form<typeof data> {...props} formData={data} onChange={handleChange} />;
@@ -397,7 +397,7 @@ export const Numbers = (props: FormProps) => {
 
 	const handleChange = React.useCallback((change) => {
 		action('onChange')(change);
-		setData(change);
+		setData(change.formData);
 	}, []);
 
 	return <Form<typeof data> {...props} formData={data} onChange={handleChange} />;
@@ -487,7 +487,7 @@ export const Widgets = (props: FormProps) => {
 
 	const handleChange = React.useCallback((change) => {
 		action('onChange')(change);
-		setData(change);
+		setData(change.formData);
 	}, []);
 
 	return <Form<typeof data> {...props} formData={data} onChange={handleChange} />;
@@ -646,7 +646,7 @@ export const Ordering = (props: FormProps) => {
 
 	const handleChange = React.useCallback((change) => {
 		action('onChange')(change);
-		setData(change);
+		setData(change.formData);
 	}, []);
 
 	return <Form<typeof data> {...props} formData={data} onChange={handleChange} />;
@@ -706,7 +706,7 @@ export const Errors = (props: FormProps) => {
 
 	const handleChange = React.useCallback((change) => {
 		action('onChange')(change);
-		setData((prev) => ({ ...prev, ...change }));
+		setData((prev) => ({ ...prev, ...change.formData }));
 	}, []);
 
 	return <Form<typeof data> {...props} formData={data} onChange={handleChange} />;
@@ -762,7 +762,7 @@ export const ErrorSchema = (props: FormProps) => {
 
 	const handleChange = React.useCallback((change) => {
 		action('onChange')(change);
-		setData(change);
+		setData(change.formData);
 	}, []);
 
 	return <Form<typeof data> {...props} formData={data} onChange={handleChange} />;
@@ -844,7 +844,7 @@ export const Single = (props: FormProps) => {
 
 	const handleChange = React.useCallback((change) => {
 		action('onChange')(change);
-		setData(change);
+		setData(change.formData);
 	}, []);
 
 	return <Form<typeof data> {...props} formData={data} onChange={handleChange} />;
@@ -867,7 +867,7 @@ export const Collapsible = (props: FormProps) => {
 
 	const handleChange = React.useCallback((change) => {
 		action('onChange')(change);
-		setData(change);
+		setData(change.formData);
 	}, []);
 
 	return <Form<typeof data> {...props} formData={data} onChange={handleChange} />;
@@ -950,7 +950,7 @@ export const FormContext = (props: FormProps) => {
 
 	const handleChange = React.useCallback((change) => {
 		action('onChange')(change);
-		setData(change);
+		setData(change.formData);
 	}, []);
 
 	return (
@@ -1067,7 +1067,7 @@ export const CountriesWithStates = (props: FormProps) => {
 
 	const handleChange = React.useCallback((change) => {
 		action('onChange')(change);
-		setData(change);
+		setData(change.formData);
 	}, []);
 
 	return <Form<typeof data> {...props} schema={schema} formData={data} onChange={handleChange} />;

@@ -3,7 +3,6 @@ import * as React from 'react';
 import { getUiOptions, optionsList } from '@rjsf/utils';
 
 import { useFormContext } from '../context';
-import { isSelect } from '../form.helpers';
 import { getWidget } from '../widgets';
 
 interface BooleanFieldProps {

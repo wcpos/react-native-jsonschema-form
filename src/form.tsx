@@ -105,7 +105,7 @@ export interface FormProps<
 	 * receive the same args as `onSubmit` any time a value is updated in the form. Can also return the `id` of the field
 	 * that caused the change
 	 */
-	onChange: (data: IChangeEvent<T, S, F>, id?: string) => void;
+	onChange: ({changes, formData}: {changes: IChangeEvent<T, S, F>; formData: T}) => void;
 }
 
 /**
@@ -148,18 +148,24 @@ export const Form = <T extends object | string>({
 	const handleOnChange = React.useCallback(
 		(changes) => {
 			let newData = cloneDeep(formData);
+			let emittedChanges = null;
 			forEach(changes, (value, id) => {
 				const path = id.split('.');
 				const root = path.shift();
 				if (path.length === 0 && root === idPrefix) {
 					// single-field form
 					newData = value;
+					emittedChanges = value;
 				} else {
 					set(newData, path, value);
+					if (emittedChanges === null) {
+						emittedChanges = {};
+					}
+					set(emittedChanges, path, value);
 				}
 			});
 			if (onChange) {
-				onChange(newData);
+				onChange({ changes: emittedChanges, formData: newData });
 			}
 		},
 		[formData, onChange, idPrefix]

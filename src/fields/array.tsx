@@ -2,12 +2,12 @@ import * as React from 'react';
 
 import { isFixedItems, isCustomWidget } from '@rjsf/utils';
 
-import { useFormContext } from '../context';
 import { CustomWidget } from './custom-widget';
 import { FilesArray } from './files-array';
 import { FixedArray } from './fixed-array';
 import { MultiSelectField } from './multi-select';
 import { NormalArray } from './normal-array';
+import { useFormContext } from '../context';
 
 export const ArrayField = ({ schema, uiSchema, ...props }) => {
 	const { fields, schemaUtils } = useFormContext();
