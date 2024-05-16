@@ -2,10 +2,10 @@ import * as React from 'react';
 
 import { getUiOptions } from '@rjsf/utils';
 
+import { generateKeyedFormData } from './array.helpers';
 import { useFormContext } from '../context';
 import { ArrayTemplate } from '../templates/array';
 import { NodeTemplate } from '../templates/node';
-import { generateKeyedFormData } from './array.helpers';
 
 /**
  *
@@ -89,7 +89,7 @@ export const NormalArray = ({ schema, uiSchema, formData, name, idSchema }) => {
 	 *
 	 */
 	const getNewFormDataRow = React.useCallback(() => {
-		return schemaUtils.getDefaultFormState(schema.items, undefined);
+		return schemaUtils.getDefaultFormState(schema.items, undefined, true);
 	}, [schema.items, schemaUtils]);
 
 	/**

@@ -14,6 +14,8 @@ export const ArrayItemTemplate = ({
 	onRemoveIndex = (idx: number) => {},
 	onReorder = (curr: number, next: number) => {},
 	readonly,
+	padding = 'medium',
+	border = true,
 }) => {
 	const hasToolbar = canMoveDown || canMoveUp || canRemove;
 
@@ -39,7 +41,7 @@ export const ArrayItemTemplate = ({
 	}, [index, onRemoveIndex]);
 
 	return (
-		<Box horizontal space="medium">
+		<Box horizontal space="medium" padding={padding} border={border}>
 			<Box fill>{children}</Box>
 			{hasToolbar && (
 				<Box>

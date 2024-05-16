@@ -27,7 +27,7 @@ import widgets from './widgets';
 export interface FormState<
 	T = any,
 	S extends StrictRJSFSchema = RJSFSchema,
-	F extends FormContextType = any
+	F extends FormContextType = any,
 > {
 	/** The JSON schema object for the form */
 	schema: S;
@@ -61,7 +61,7 @@ export interface FormState<
 export interface IChangeEvent<
 	T = any,
 	S extends StrictRJSFSchema = RJSFSchema,
-	F extends FormContextType = any
+	F extends FormContextType = any,
 > extends Omit<FormState<T, S, F>, 'schemaValidationErrors' | 'schemaValidationErrorSchema'> {
 	/** The status of the form when submitted */
 	status?: 'submitted';
@@ -70,7 +70,7 @@ export interface IChangeEvent<
 export interface FormProps<
 	T = any,
 	S extends StrictRJSFSchema = RJSFSchema,
-	F extends FormContextType = any
+	F extends FormContextType = any,
 > {
 	/** The JSON schema object for the form */
 	schema: S;
@@ -105,7 +105,7 @@ export interface FormProps<
 	 * receive the same args as `onSubmit` any time a value is updated in the form. Can also return the `id` of the field
 	 * that caused the change
 	 */
-	onChange: ({changes, formData}: {changes: IChangeEvent<T, S, F>; formData: T}) => void;
+	onChange: ({ changes, formData }: { changes: IChangeEvent<T, S, F>; formData: T }) => void;
 }
 
 /**
@@ -143,7 +143,7 @@ export const Form = <T extends object | string>({
 	);
 
 	/**
-	 * TODO - form should only emit changes, not the whole form data
+	 * TODO - this is a bit of a mess, need to clean up the `onChange` handler
 	 */
 	const handleOnChange = React.useCallback(
 		(changes) => {
@@ -152,16 +152,17 @@ export const Form = <T extends object | string>({
 			forEach(changes, (value, id) => {
 				const path = id.split('.');
 				const root = path.shift();
+				const pathWithoutRoot = path.join('.');
 				if (path.length === 0 && root === idPrefix) {
 					// single-field form
-					newData = value;
 					emittedChanges = value;
+					newData = value;
 				} else {
-					set(newData, path, value);
 					if (emittedChanges === null) {
 						emittedChanges = {};
 					}
-					set(emittedChanges, path, value);
+					emittedChanges[pathWithoutRoot] = value;
+					set(newData, path, value);
 				}
 			});
 			if (onChange) {

@@ -16,6 +16,8 @@ export const ArrayTemplate = ({ uiSchema, schema, items, canAdd, onAdd, disabled
 	const collapsible = get(uiSchema, 'ui:collapsible', false);
 	const title = get(uiSchema, 'ui:title', schema.title);
 	const description = get(uiSchema, 'ui:description', schema.description);
+	const border = get(uiSchema, 'ui:options.border', true);
+	const padding = get(uiSchema, 'ui:options.padding', 'medium');
 
 	const { orderable, removable } = {
 		orderable: true,
@@ -35,7 +37,7 @@ export const ArrayTemplate = ({ uiSchema, schema, items, canAdd, onAdd, disabled
 			<Box space="small" paddingBottom="small">
 				<Collapsible title={<TitleField title={title} />} initExpand={collapsible === 'open'}>
 					{description && <DescriptionField description={description} />}
-					<Box>
+					<Box space="medium" paddingBottom="medium">
 						{items &&
 							items.map((arrayItemProps) => {
 								return (
@@ -76,6 +78,8 @@ export const ArrayTemplate = ({ uiSchema, schema, items, canAdd, onAdd, disabled
 								canMoveDown={orderable && arrayItemProps.canMoveDown}
 								canMoveUp={orderable && arrayItemProps.canMoveUp}
 								canRemove={removable && arrayItemProps.canRemove}
+								border={border}
+								padding={padding}
 							/>
 						);
 					})}
