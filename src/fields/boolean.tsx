@@ -54,8 +54,8 @@ export const BooleanField = ({ schema, formData, name, idSchema, uiSchema }: Boo
 		if (context && context.label && typeof context.label === 'function') {
 			return context.label(idSchema.$id, _label);
 		}
-		return _label;
-	}, [context, idSchema.$id, name, schema.title]);
+		return uiSchema['ui:label'] || _label;
+	}, [context, idSchema.$id, name, schema.title, uiSchema]);
 
 	/**
 	 *

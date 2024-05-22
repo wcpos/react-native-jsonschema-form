@@ -20,8 +20,8 @@ export const StringField = ({ schema, formData, name, idSchema, uiSchema }: Stri
 		? enumOptions.length <= 2
 			? 'radio'
 			: enumOptions.length >= 15
-			? 'combobox'
-			: 'select'
+				? 'combobox'
+				: 'select'
 		: 'text';
 
 	/**
@@ -79,8 +79,8 @@ export const StringField = ({ schema, formData, name, idSchema, uiSchema }: Stri
 		if (context && context.label && typeof context.label === 'function') {
 			return context.label(idSchema.$id, _label);
 		}
-		return _label;
-	}, [context, idSchema.$id, name, schema.title]);
+		return uiSchema['ui:label'] || _label;
+	}, [context, idSchema.$id, name, schema.title, uiSchema]);
 
 	/**
 	 *
