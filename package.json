@@ -1,6 +1,6 @@
 {
   "name": "@wcpos/react-native-jsonschema-form",
-  "version": "0.0.74",
+  "version": "0.0.75",
   "description": "A platform agnostic component (native/web) for building forms with JSON Schema",
   "author": "kilbot <paul@kilbot.com>",
   "homepage": "https://github.com/wcpos/react-native-jsonschema-form#readme",
@@ -35,7 +35,7 @@
     "stylis": "^4.3.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.24.5",
+    "@babel/core": "^7.24.6",
     "@babel/plugin-proposal-export-namespace-from": "^7.18.9",
     "@storybook/addon-actions": "7.5.3",
     "@storybook/addon-controls": "7.5.3",
@@ -49,7 +49,7 @@
     "@testing-library/react": "^15.0.7",
     "@testing-library/react-hooks": "8.0.1",
     "@types/jest": "^29.5.12",
-    "@types/lodash": "4.17.1",
+    "@types/lodash": "4.17.4",
     "@types/react": "^18.2.79",
     "@types/react-dom": "~18.2.25",
     "@types/react-is": "^18.2.4",
@@ -62,7 +62,7 @@
     "react-scripts": "5.0.1",
     "react-test-renderer": "18.2.0",
     "storybook": "^7.5.3",
-    "ts-jest": "^29.1.3",
+    "ts-jest": "^29.1.4",
     "typescript": "^5.4.5",
     "webpack": "5.91.0"
   },
