@@ -19,7 +19,7 @@
     "build-storybook": "storybook build -o docs-build"
   },
   "dependencies": {
-    "@rjsf/utils": "^5.18.4",
+    "@rjsf/utils": "^5.19.3",
     "@wcpos/components": "*",
     "@wcpos/utils": "*",
     "json-schema-merge-allof": "0.8.1",
@@ -28,7 +28,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-is": "18.2.0",
-    "react-native": "0.74.2",
+    "react-native": "0.74.5",
     "react-native-reanimated": "3.11.0",
     "react-native-web": "~0.19.12",
     "styled-components": "6.1.11",
@@ -49,7 +49,7 @@
     "@testing-library/react": "^15.0.7",
     "@testing-library/react-hooks": "8.0.1",
     "@types/jest": "^29.5.12",
-    "@types/lodash": "4.17.4",
+    "@types/lodash": "4.17.7",
     "@types/react": "^18.2.79",
     "@types/react-dom": "~18.2.25",
     "@types/react-is": "^18.2.4",
